@@ -24,7 +24,7 @@
 }
 
 .input_button_custom {
-    @apply w-full border py-3 flex justify-center gap-2 flex
+    @apply w-full border py-3 flex justify-center gap-2 
 }
 
 .input_button_custom:hover{
