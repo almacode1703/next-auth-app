@@ -12,7 +12,8 @@ export default function Home() {
       <Head>
         <title>Next Auth Ecomm</title>
       </Head>
-      <Guest/>
+      {/* <Guest/> */}
+      <User/>
     </div>
   )
 }
@@ -23,7 +24,7 @@ function Guest(){
     <main className='container mx-auto text-center py-20'>
       <h3 className='text-4xl font-bold'>Guest Homepage</h3>
       <div className='flex justify-center'>
-        <Link href={'/login'} legacyBehavior passHref><a className='mt-5 px-10 py-1 rounded-sm bg-indigo-500'>Sign In</a></Link>
+        <Link href={'/login'} legacyBehavior passHref><a className='mt-5 px-10 py-1 rounded-sm bg-indigo-500 text-gray-50'>Sign In</a></Link>
       </div>
     </main>
   )
@@ -34,7 +35,7 @@ function Guest(){
 function User(){
   return (
     <main className='container mx-auto text-center py-20'>
-      <h3 className='text-4xl font-bold'>Authorized User Homepage</h3>
+      <h3 className='text-4xl font-bold'>Authorize User Homepage</h3>
 
        <div className='details'>
         <h5>Unknown</h5>
@@ -42,11 +43,11 @@ function User(){
        </div>
 
        <div className="flex justify-center">
-        <button className='mt-5 px-10 py-1 rounded-sm bg-indigo-500 bg-grey-50'>Sign Out</button>
+        <button className='mt-5 px-10 py-1 rounded-sm bg-indigo-500 text-gray-50'>Sign Out</button>
        </div>
 
       <div className='flex justify-center'>
-        <Link href={'/profile'}><a href="Sign In" className='mt-5 px-10 py-1 rounded-sm bg-indigo-500'></a>Profile Page</Link>
+        <Link href={'/profile'} legacyBehavior><a href="Sign In" className='mt-5 px-10 py-1 rounded-sm bg-indigo-500 text-gray-50'>Profile Page</a></Link>
       </div>
     </main>
   )
