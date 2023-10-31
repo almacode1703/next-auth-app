@@ -8,11 +8,17 @@ import Image from 'next/image'
 import gitImg from '../../public/assets/github-mark.svg'
 import googleImg from '../../public/assets/google-logo.svg'
 import {HiAtSymbol, HiFingerPrint} from 'react-icons/hi'
+import {signIn, signOut} from 'next-auth/react'
 
 
 export default function Login() {
 
     const [show, setShow] = useState(false);
+
+    //Google Handler Function
+    async function handleGoogleSignIn(){
+        signIn('google', {callbackUrl : "http://localhost:3000"})
+    }
 
     return (
         <Layout>
@@ -43,7 +49,7 @@ export default function Login() {
                         <button type="submit">Login</button>
                     </div>
                     <div className={styles.input_button_custom}>
-                        <button type="button" >Sign In with Google</button>
+                        <button type="button" onClick={handleGoogleSignIn} >Sign In with Google</button>
                         <Image src={googleImg} width="28" height="28" />
                     </div>
                     <div className={styles.input_button_custom}>
