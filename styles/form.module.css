@@ -48,3 +48,10 @@
     color:#40E0D0;
     cursor:pointer
 }
+
+.input_error_message {
+    color:red;
+    float: left;
+    position:relative;
+    top:-10px;
+}

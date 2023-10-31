@@ -10,6 +10,7 @@ import googleImg from "../../public/assets/google-logo.svg";
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { signIn } from "next-auth/react";
 import { useFormik } from "formik";
+import login_validate from '../lib/validate'
 
 
 export default function Login() {
@@ -19,8 +20,11 @@ export default function Login() {
         email:'',
         password:''
     },
+    validate:login_validate,
     onSubmit
   });
+
+  console.log(formik.errors)
 
   async function onSubmit(values){
     console.log(values)
@@ -47,7 +51,7 @@ export default function Login() {
           </p>
         </div>
 
-        <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
+        <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
 
           <div className={styles.input_group}>
             <input
@@ -63,7 +67,7 @@ export default function Login() {
               <HiAtSymbol size={25} />
             </span>
           </div>
-
+          <span>{formik.errors.email ? <span className={styles.input_error_message}>{formik.errors.email}</span>:<></>}</span>  
           <div className={styles.input_group}>
             <input
               type={`${show ? "text" : "password"}`}
@@ -82,6 +86,7 @@ export default function Login() {
               <HiFingerPrint size={25} />
             </span>
           </div>
+          <span>{formik.errors.password ? <span className={styles.input_error_message}>{formik.errors.password}</span>:<></>}</span>
 
      
           <button className={styles.input_button} type="submit">Login</button>

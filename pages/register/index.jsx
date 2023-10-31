@@ -10,6 +10,8 @@ import { useFormik } from "formik";
 
 export default function Register() {
   const [show, setShow] = useState({ password: false, cpassword: false });
+
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -17,6 +19,7 @@ export default function Register() {
       password: "",
       cpassword: "",
     },
+    // validate:,
     onSubmit,
   });
   async function onSubmit(values) {
