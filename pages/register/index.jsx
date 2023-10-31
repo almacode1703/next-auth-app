@@ -5,12 +5,10 @@ import Head from "next/head";
 import Layout from "../layout/layout";
 import styles from "../../styles/form.module.css";
 import Image from "next/image";
-import gitImg from "../../public/assets/github-mark.svg";
-import googleImg from "../../public/assets/google-logo.svg";
-import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
+import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 
 export default function Register() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState({password:false, cpassword:false});
   return (
     <Layout>
       <Head>
@@ -28,11 +26,11 @@ export default function Register() {
             <input
               type="text"
               name="username"
-              placeholder="User Name"
+              placeholder="Username"
               className={styles.input_text}
             />
             <span className="icon flex items-center px-4" id="emailSymbol">
-              <HiAtSymbol size={25} />
+              <HiOutlineUser size={25} />
             </span>
           </div>
           <div className={styles.input_group}>
@@ -48,14 +46,14 @@ export default function Register() {
           </div>
           <div className={styles.input_group}>
             <input
-              type={`${show ? "text" : "password"}`}
+              type={`${show.password ? "text" : "password"}`}
               name="password"
               placeholder="password"
               className={styles.input_text}
             />
             <span
               className="icon flex items-center px-4"
-              onClick={() => setShow(!show)}
+              onClick={() => setShow({...show,password:!show.password})}
               id="fingerPrint"
             >
               <HiFingerPrint size={25} />
@@ -63,14 +61,14 @@ export default function Register() {
           </div>
           <div className={styles.input_group}>
             <input
-              type={`${show ? "text" : "password"}`}
-              name="password"
-              placeholder="confirm password"
+              type={`${show.cpassword ? "text" : "password"}`}
+              name="cpassword"
+              placeholder="Confirm Password"
               className={styles.input_text}
             />
             <span
               className="icon flex items-center px-4"
-              onClick={() => setShow(!show)}
+              onClick={() => setShow({...show, cpassword:!show.cpassword})}
               id="fingerPrint"
             >
               <HiFingerPrint size={25} />
@@ -79,18 +77,10 @@ export default function Register() {
           <div className={styles.input_button}>
             <button type="submit">Login</button>
           </div>
-          <div className={styles.input_button_custom}>
-            <button type="button">Sign In with Google</button>
-            <Image src={googleImg} width="28" height="28" />
-          </div>
-          <div className={styles.input_button_custom}>
-            <button type="button">Sign In with Github</button>
-            <Image src={gitImg} width="24" height="20" />
-          </div>
-          <p className="text-center text-gray">
+          <p className="text-center text-gray-400">
             Don't have an account ?{" "}
             <Link href={"/login"} className={styles.sign_up_link}>
-              login
+              Sign In
             </Link>
           </p>
         </form>

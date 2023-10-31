@@ -50,7 +50,7 @@ export default function Login() {
                         <button type="button" >Sign In with Github</button>
                         <Image src={gitImg} width="24" height="20" />
                     </div>
-                    <p className="text-center text-gray">Don't have an account ? <Link href={'/register'} className={styles.sign_up_link}>Sign Up</Link></p>
+                    <p className="text-center text-gray-400">Don't have an account ? <Link href={'/register'} className={styles.sign_up_link}>Sign Up</Link></p>
                 </form>
             </section>
         </Layout>
