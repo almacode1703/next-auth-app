@@ -9,13 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.0"
+    "react-icons": "^4.11.0"
   },
   "devDependencies": {
     "autoprefixer": "^10",
     "postcss": "^8",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard-scss": "^11.0.0",
     "tailwindcss": "^3"
   }
 }
