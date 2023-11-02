@@ -54,4 +54,7 @@
     float: left;
     position:relative;
     top:-10px;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 800;
 }

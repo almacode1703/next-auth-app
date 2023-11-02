@@ -9,7 +9,7 @@ export default function Layout({ children }) {
                 <div className={styles.imgStyle}>
                    <RandomBackground/>
                 </div>
-                <div className='right flex flex-col justify-evenly '>
+                <div className='right flex flex-col justify-evenly bg-slate-50 '>
                     <div className='text-center py-10'>
                         {children}
                     </div>

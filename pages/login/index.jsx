@@ -53,7 +53,7 @@ export default function Login() {
 
         <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
 
-          <div className={styles.input_group}>
+          <div className={`${styles.input_group}${formik.errors.email && formik.touched.email ? ' border-rose-600':''}`}>
             <input
               type="email"
               name="email"
@@ -67,8 +67,9 @@ export default function Login() {
               <HiAtSymbol size={25} />
             </span>
           </div>
-          <span>{formik.errors.email ? <span className={styles.input_error_message}>{formik.errors.email}</span>:<></>}</span>  
-          <div className={styles.input_group}>
+          <span>{formik.errors.email && formik.touched.email ? <span className={styles.input_error_message}>{formik.errors.email}</span>:<></>}</span>  
+
+          <div className={`${styles.input_group}${formik.errors.password && formik.touched.password ? ' border-rose-600':''}`}>
             <input
               type={`${show ? "text" : "password"}`}
               name="password"
@@ -86,11 +87,9 @@ export default function Login() {
               <HiFingerPrint size={25} />
             </span>
           </div>
-          <span>{formik.errors.password ? <span className={styles.input_error_message}>{formik.errors.password}</span>:<></>}</span>
+          <span>{formik.errors.password && formik.touched.password ? <span className={styles.input_error_message}>{formik.errors.password}</span>:<></>}</span>
 
-     
           <button className={styles.input_button} type="submit">Login</button>
-          
           <div className={styles.input_button_custom}>
             <button type="button" onClick={handleGoogleSignIn}>
               Sign In with Google
@@ -109,7 +108,6 @@ export default function Login() {
               Sign Up
             </Link>
           </p>
-
         </form>
       </section>
     </Layout>
